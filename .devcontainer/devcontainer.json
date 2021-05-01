@@ -1,0 +1,23 @@
+{
+    "name": "Exercism - Clojure",
+
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "exercism",
+
+    // "image": "exercism-io--clojure",
+    // "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=delegated",
+    
+    "workspaceFolder": "/workspace",
+    "settings":{
+        "calva.jokerPath": "/usr/bin",
+        "terminal.integrated.shell.linux": "/bin/bash",
+        "terminal.integrated.scrollback": 2000,
+    },
+    "extensions": [
+        "betterthantomorrow.calva",
+        "tonsky.clojure-warrior",
+        "donjayamanne.githistory",
+        "ms-azuretools.vscode-docker"
+    ],
+    "postCreateCommand": "cp -R /tmp/.ssh-localhost/* ~/.ssh && chmod 700 ~/.ssh && chmod 600 ~/.ssh/*",
+}
