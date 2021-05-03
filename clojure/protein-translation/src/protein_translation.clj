@@ -9,12 +9,12 @@
     ("UAU", "UAC") "Tyrosine"
     ("UGU", "UGC") "Cysteine"
     "UGG" "Tryptophan"
-    "Unrecognized"))
+    "STOP"))
 
-(defn divide-rna
-  ([rna] (divide-rna rna []))
+(defn translate-rna
+  ([rna] (translate-rna rna []))
   ([rna codons]
    (cond
      (= rna "") codons
      (some (fn [a] (= a (subs rna 0 3))) '("UAA" "UAG" "UGA")) codons
-     :else (divide-rna (subs rna 3 (count rna)) (conj codons (translate-codon (subs rna 0 3)))))))
+     :else (translate-rna (subs rna 3 (count rna)) (conj codons (translate-codon (subs rna 0 3)))))))
