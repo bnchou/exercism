@@ -1,15 +1,25 @@
 (ns protein-translation)
 
+(def codons-to-protein {"AUG" "Methionine"
+                        "UGG" "Tryptophan"
+                        "UUU" "Phenylalanine"
+                        "UUC" "Phenylalanine"
+                        "UUA" "Leucine"
+                        "UUG" "Leucine"
+                        "UAU" "Tyrosine"
+                        "UAC" "Tyrosine"
+                        "UGU" "Cysteine"
+                        "UGC" "Cysteine"
+                        "UCU" "Serine"
+                        "UCC" "Serine"
+                        "UCA" "Serine"
+                        "UCG" "Serine"
+                        "UAA" "STOP"
+                        "UAG" "STOP"
+                        "UGA" "STOP"})
+
 (defn translate-codon [c]
-  (case c
-    "AUG" "Methionine"
-    ("UUU", "UUC") "Phenylalanine"
-    ("UUA", "UUG") "Leucine"
-    ("UCU", "UCC", "UCA", "UCG") "Serine"
-    ("UAU", "UAC") "Tyrosine"
-    ("UGU", "UGC") "Cysteine"
-    "UGG" "Tryptophan"
-    "STOP"))
+  (codons-to-protein c))
 
 (defn translate-rna
   ([rna] (translate-rna rna []))
