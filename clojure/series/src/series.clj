@@ -1,5 +1,9 @@
 (ns series)
 
-(defn slices [string length] ;; <- arglist goes here
-  ;; your code goes here
-)
+(defn slices
+  ([string length] (slices string length []))
+  ([string length vector] (case length
+    0 [""]
+    (if (< (count string) length)
+      vector
+      (slices (subs string 1 (count string)) length (conj vector (subs string 0 length)))))))
