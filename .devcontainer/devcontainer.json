@@ -1,12 +1,7 @@
 {
     "name": "Exercism - Clojure",
-
     "dockerComposeFile": "docker-compose.yml",
     "service": "exercism",
-
-    // "image": "exercism-io--clojure",
-    // "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=delegated",
-    
     "workspaceFolder": "/workspace",
     "settings":{
         "calva.jokerPath": "/usr/bin",
